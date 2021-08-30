@@ -4,6 +4,46 @@ html(lang="en")
         meta(charset="utf-8")
         meta(name="viewport" content="width=device-width, initial-scale=1")
         title= "Home"
-    body 
-        nav
-            a(href="/") Home
+    body
+        .loader
+            .loader-content-tile Please allow location access
+            .bars-3
+        main
+            h1 Home
+        aside
+            header 
+                .text
+                    span#location.red Rasbari
+                    span#city Howrah
+                .flag
+                    img(src="https://www.countryflags.io/IN/flat/64.png")
+            hr
+            h4 Weather Details
+            ul.weather(type="none")
+                li
+                    span Wind
+                    span#wind 0
+                li
+                    span Humidity
+                    span#humidity 0
+                li
+                    span Pressure
+                    span#pressure 0
+                li
+                    span Clouds
+                    span#clouds 0
+
+            hr
+            h4 Sunset &amp; Sunrise
+            .flex
+                .sunset-sunrise
+                    .text
+                        span Sunset
+                        span#sunset 0
+                    img(src="./assets/sunset.png")
+                .sunset-sunrise
+                    .text
+                        span Sunrise
+                        span#sunrise 0
+                    img(src="./assets/sunrise.png")
+            

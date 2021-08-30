@@ -1,0 +1,52 @@
+=keyframes($name)
+    @-webkit-keyframes #{$name}
+        @content
+    @-moz-keyframes #{$name}
+        @content
+    @-ms-keyframes #{$name}
+        @content
+    @keyframes #{$name}
+        @content
+
+.loader
+    height: 100vh
+    width: 100vw
+
+    background: #000
+
+    position: fixed
+    top: 0
+    left: 0
+
+    z-index: 99999
+
+    transition: all 0.3s ease-in-out
+
+    display: flex
+    flex-direction: column
+    justify-content: center
+    align-items: center
+
+    .loader-content-tile
+        font-size: 2.5rem
+        color: #fff
+        margin-bottom: 1em
+
+$bar-color: linear-gradient(currentColor 0 0)
+
+.bars-3
+    width: 3em
+    height: 3em
+    color: #fff
+    background: $bar-color 0 0,$bar-color 0 100%, $bar-color 50% 50%, $bar-color 100% 0, $bar-color 100% 100%
+    background-repeat: no-repeat
+    transition: all 0.3s ease-in-out
+    animation: b3 1s infinite alternate
+
++keyframes(b3)
+    0%,10%
+        background-size: 9px 100%
+    50%
+        background-size: 9px 9px
+    90%,100%
+        background-size: 100% 9px

@@ -4,7 +4,7 @@ module.exports = {
   mode: "development",
   entry: "./src/index.js",
   output: {
-    path: __dirname + "/dist/js/",
+    path: __dirname + "/dist/",
     filename: "output.bundle.js",
   },
   //   This is to generate source maps
