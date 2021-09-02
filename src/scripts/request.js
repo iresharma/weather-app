@@ -43,7 +43,21 @@ const singleCallAPI = (lat, long) => {
 
 const getBackgroundImage = (weather) => {
   return new Promise((resolve, reject) => {
-    const url = `https://api.unsplash.com/photos/random?query=${weather}&client_id=4j3NCVWHWBF6uM9LlfrF_NQvO8J5AFOpvHd9lT6ZnzI`;
+    const url = `https://api.unsplash.com/photos/random?query=${weather}-dark&client_id=4j3NCVWHWBF6uM9LlfrF_NQvO8J5AFOpvHd9lT6ZnzI`;
+    axios
+      .get(url)
+      .then((res) => {
+        resolve(res.data);
+      })
+      .catch((err) => {
+        reject(err);
+      });
+  });
+};
+
+const getRandomQuote = () => {
+  return new Promise((resolve, reject) => {
+    const url = `https://api.quotable.io/random?maxLength=100&tags=sucess|love|nature`;
     axios
       .get(url)
       .then((res) => {
@@ -60,4 +74,5 @@ export default {
   getForeCast,
   singleCallAPI,
   getBackgroundImage,
+  getRandomQuote,
 };

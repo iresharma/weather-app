@@ -1,0 +1,308 @@
+@import url("https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+.loader {
+  height: 100vh;
+  width: 100vw;
+  background: #000;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 99999;
+  transition: all 0.3s ease-in-out;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.loader .loader-content-tile {
+  font-size: 2.5rem;
+  color: #fff;
+  margin-bottom: 1em;
+}
+
+.bars-3 {
+  width: 3em;
+  height: 3em;
+  color: #fff;
+  background: linear-gradient(currentColor 0 0) 0 0, linear-gradient(currentColor 0 0) 0 100%, linear-gradient(currentColor 0 0) 50% 50%, linear-gradient(currentColor 0 0) 100% 0, linear-gradient(currentColor 0 0) 100% 100%;
+  background-repeat: no-repeat;
+  transition: all 0.3s ease-in-out;
+  animation: b3 1s infinite alternate;
+}
+
+@-webkit-keyframes b3 {
+  0%, 10% {
+    background-size: 9px 100%;
+  }
+  50% {
+    background-size: 9px 9px;
+  }
+  90%, 100% {
+    background-size: 100% 9px;
+  }
+}
+@-moz-keyframes b3 {
+  0%, 10% {
+    background-size: 9px 100%;
+  }
+  50% {
+    background-size: 9px 9px;
+  }
+  90%, 100% {
+    background-size: 100% 9px;
+  }
+}
+@-ms-keyframes b3 {
+  0%, 10% {
+    background-size: 9px 100%;
+  }
+  50% {
+    background-size: 9px 9px;
+  }
+  90%, 100% {
+    background-size: 100% 9px;
+  }
+}
+@keyframes b3 {
+  0%, 10% {
+    background-size: 9px 100%;
+  }
+  50% {
+    background-size: 9px 9px;
+  }
+  90%, 100% {
+    background-size: 100% 9px;
+  }
+}
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "PT Sans", sans-serif;
+  overflow-x: hidden;
+}
+
+.show {
+  display: block !important;
+}
+
+.popover {
+  background: rgba(255, 255, 255, 0.4);
+  border-radius: 0.5rem;
+  display: none;
+  position: absolute;
+  right: 29vw;
+  top: 2rem;
+  padding: 1rem;
+}
+
+body {
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  height: 100vh;
+}
+body main {
+  display: none;
+  max-height: 100vh;
+  background-color: skyblue;
+  background-size: cover;
+  overflow-y: scroll;
+}
+body main .flex-main {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  height: 100%;
+}
+body main .flex-main .flex-main-top {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 2rem;
+}
+body main .flex-main .flex-main-top .flex-main-top-left {
+  color: #fff;
+  font-size: 2rem;
+  font-weight: 700;
+}
+body main .flex-main .flex-main-top .flex-main-top-left span {
+  font-weight: 400;
+}
+body main .flex-main .flex-main-top .flex-main-top-right {
+  transform: translateX(-3rem);
+}
+body main .flex-main .flex-main-top .flex-main-top-right img {
+  padding: 0;
+  margin: 0;
+  width: 2.5rem;
+  aspect-ratio: 1;
+  cursor: pointer;
+}
+body main .flex-main .flex-main-bottom {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  width: 100%;
+  padding: 2rem;
+  color: rgba(255, 255, 255, 0.9);
+}
+body main .flex-main .flex-main-bottom .flex-main-bottom-first {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+  width: 100%;
+}
+body main .flex-main .flex-main-bottom .flex-main-bottom-first #temp {
+  font-size: 15rem;
+  font-weight: 700;
+  line-height: 0.7;
+  padding: auto;
+}
+body main .flex-main .flex-main-bottom .flex-main-bottom-first .flex-main-bottom-first-right {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+body main .flex-main .flex-main-bottom .flex-main-bottom-first .flex-main-bottom-first-right #more-info-parent {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+body main .flex-main .flex-main-bottom .flex-main-bottom-first .flex-main-bottom-first-right #more-info-parent .more-info-box {
+  margin: 1rem;
+  margin-top: 0;
+}
+body main .flex-main .flex-main-bottom .flex-main-bottom-first .flex-main-bottom-first-right #more-info-parent .more-info-box span {
+  display: block;
+}
+body main .flex-main .flex-main-bottom .flex-main-bottom-first .flex-main-bottom-first-right #more-info-parent .more-info-box span:first-child {
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+body main .flex-main .flex-main-bottom .flex-main-bottom-first .flex-main-bottom-first-right #more-info-parent .more-info-box span:last-child {
+  font-size: 1.25rem;
+  font-weight: 400;
+}
+body main .flex-main .flex-main-bottom .flex-main-bottom-first .flex-main-bottom-first-right #quote {
+  font-size: 1.25rem;
+  text-transform: capitalize;
+  margin: 1rem;
+  font-weight: 700;
+  width: 90%;
+}
+body main .flex-main .flex-main-bottom .flex-main-bottom-first .flex-main-bottom-first-right #quote span {
+  font-weight: 400;
+}
+body main .flex-main .flex-main-bottom hr {
+  width: 95%;
+  margin: 2rem 0;
+}
+body main .flex-main .flex-main-bottom .flex-main-bottom-second {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 95%;
+  font-weight: 700;
+  letter-spacing: 0.1rem;
+}
+body main .flex-main .flex-main-bottom .flex-main-bottom-second div:last-child button {
+  background: transparent;
+  border: 0.1rem solid #fff;
+  color: #fff;
+  padding: 0.3rem;
+  margin-left: 0.2rem;
+}
+body main .flex-main .flex-main-bottom .flex-main-bottom-second div:last-child button:hover {
+  background: #fff;
+  color: #000;
+}
+body aside {
+  display: none;
+  max-height: 100vh;
+  background-color: #efefef;
+  border-top-left-radius: 1em;
+  border-bottom-left-radius: 1em;
+  padding: 3em;
+}
+body aside header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+body aside header .text span {
+  display: block;
+}
+body aside header .text #location {
+  font-size: 1.5em;
+  font-weight: 700;
+}
+body aside header .text #city {
+  font-size: 1em;
+  font-weight: 400;
+  color: #7f7f7f;
+}
+body aside header .flag img {
+  transform: translateY(-0.75em);
+}
+body aside hr {
+  border-top: 1px solid rgba(127, 127, 127, 0.5);
+  border-bottom: 1px solid rgba(127, 127, 127, 0.5);
+  border-radius: 100%;
+  margin-top: 2em;
+  margin-bottom: 2em;
+}
+body aside h4 {
+  font-size: 1em;
+  font-weight: 700;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  letter-spacing: 0.05em;
+  color: #222222;
+}
+body aside .weather li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1em;
+}
+body aside .weather li span:first-child {
+  color: #6f6f6f;
+}
+body aside .weather li span:last-child {
+  color: #000000;
+  font-weight: 700;
+}
+body aside .flex {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+body aside .flex .sunset-sunrise {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin: 0.3em;
+}
+body aside .flex .sunset-sunrise:last-child {
+  margin-left: 2em;
+}
+body aside .flex .sunset-sunrise .text span {
+  display: block;
+}
+body aside .flex .sunset-sunrise .text span:first-child {
+  color: #000000;
+  font-weight: 700;
+}
+body aside .flex .sunset-sunrise .text span:last-child {
+  color: #6f6f6f;
+}
+body aside .flex .sunset-sunrise img {
+  width: 2.5em;
+}

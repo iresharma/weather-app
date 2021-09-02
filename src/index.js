@@ -16,6 +16,14 @@ weatherData = {
   total: null,
 };
 
+document.querySelector("button").addEventListener("click", () => {
+  request
+    .getBackgroundImage(weatherData.current.weather[0].main)
+    .then((data) => {
+      renderer.imageRender(data);
+    });
+});
+
 // cleanUp
 const cleanUp = () => {
   loader.style.display = "none";
@@ -23,6 +31,10 @@ const cleanUp = () => {
   main.style.display = "block";
   aside.style.display = "block";
 };
+
+shutter.addEventListener("click", () => {
+  document.querySelector("#popover").classList.toggle("show");
+});
 
 window.onload = () => {
   // get user coordinates
@@ -35,20 +47,27 @@ window.onload = () => {
     loaderTitle.style.color = "#000";
     loaderSpinner.style.color = "#000";
 
-    request
-      .getWeatherData(lat, lng)
-      .then((data) => (weatherData.current = data));
-
     // request.getForeCast(lat, lng).then((data) => {});
 
-    request.singleCallAPI(lat, lng).then((data) => {
-      weatherData.total = data;
-      request.getBackgroundImage(data.current.weather[0].main).then((data) => {
-        mainImageData = data;
-        renderer.sideBar(weatherData);
-        renderer.mainBack(mainImageData);
-      });
-      cleanUp();
-    });
+    Promise.all([
+      request.getWeatherData(lat, lng),
+      request.singleCallAPI(lat, lng),
+      request.getRandomQuote(),
+    ])
+      .then((data) => {
+        console.log(data);
+        weatherData.current = data[0];
+        weatherData.total = data[1];
+        let quoteData = data[2];
+        request
+          .getBackgroundImage(data[1].current.weather[0].main)
+          .then((data) => {
+            mainImageData = data;
+            renderer.sideBar(weatherData);
+            renderer.mainBack(weatherData, mainImageData, quoteData);
+            cleanUp();
+          });
+      })
+      .catch((err) => {});
   });
 };

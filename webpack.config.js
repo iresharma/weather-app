@@ -11,7 +11,20 @@ module.exports = {
   devtool: "source-map",
   plugins: [
     new HtmlWebpackPlugin({
-      template: "./src/templates/index.pug"
+      title: "Weather App",
+      template: "./src/templates/index.pug",
+      minify: true,
+      publicPath: "./",
+      meta: {
+        author: "https://github.com/iresharma",
+        language: "English",
+        robots: "index, follow",
+        keywords: "webpack,iresharma,babel,sass,pug,api",
+        description:
+          "A weather app made for simple webpack config with support for js, .pug, .sass and .scss. Made by @iresharma",
+        title: "Weather APP",
+        viewport: "width=device-width, initial-scale=1, shrink-to-fit=no",
+      },
     }),
   ],
   module: {
@@ -28,25 +41,18 @@ module.exports = {
       },
       {
         test: /\.s[ac]ss$/i,
+        exclude: /node_modules/,
         use: [
-          "style-loader",
           {
-            loader: "css-loader",
-            options: {
-              sourceMap: true,
-            },
+            loader: "file-loader",
+            options: { outputPath: "css/", name: "[name].min.css" },
           },
-          {
-            loader: "sass-loader",
-            options: {
-              sourceMap: true,
-            },
-          },
+          "sass-loader",
         ],
       },
-      { 
+      {
         test: /\.pug$/,
-        use: ["pug-loader"]
+        use: ["pug-loader"],
       },
     ],
   },

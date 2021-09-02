@@ -1,15 +1,49 @@
 doctype html 
 html(lang="en")
     head
-        meta(charset="utf-8")
-        meta(name="viewport" content="width=device-width, initial-scale=1")
-        title= "Home"
+        link(rel="stylesheet", href="css/index.min.css")
+        title Weather App
     body
+        .popover#popover
+            ul
         .loader
             .loader-content-tile Please allow location access
             .bars-3
         main
-            h1 Home
+            .flex-main
+                .flex-main-top
+                    .flex-main-top-left Weather
+                        span Iresh
+                    .flex-main-top-right
+                        img#shutter(src="./assets/shutter.png")
+                .flex-main-bottom
+                    .flex-main-bottom-first 
+                        .flex-main-bottom-first-left#temp 41°
+                        .flex-main-bottom-first-right
+                            #more-info-parent
+                                .more-info-box
+                                    span Feels Like
+                                    span#feels_like 35°
+                                
+                                .more-info-box
+                                    span Temp min
+                                    span#temp_min 35°
+
+                                .more-info-box
+                                    span Temp max
+                                    span#temp_max 35°
+
+                                .more-info-box
+                                    span Weather
+                                    span#weather 35°
+
+                            #quote
+                    hr
+                    .flex-main-bottom-second
+                        .flex-main-bottom-second-left#date hi
+                        .flex-main-bottom-second-right
+                            span#imgLocation Hello
+                            button Change Image
         aside
             header 
                 .text
